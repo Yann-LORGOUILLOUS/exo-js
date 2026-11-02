@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP08 - OPÉRATION</title>
+</head>
+
+<body>
+    <label for="number1">Nombre 1:</label>
+    <input id="number1">
+    <br>
+    <label for="number2">Nombre 2:</label>
+    <input id="number2">
+    <br>
+    <label for="operateur">Opération:</label>
+    <select id="operateur">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <br>
+    <button id="button">Calculer</button>
+
+    <h2>Résultat:</h2>
+    <span id="result"></span>
+
+    <script>
+        let input1 = document.querySelector("#number1");
+        let input2 = document.querySelector("#number2");
+        let operateur = document.querySelector("#operateur");
+
+        function verifier(event) {
+            if (isNaN(event.target.value)) {
+                let fenetre = window.open("", "erreur", "width=300,height=150");
+                fenetre.document.body.style.backgroundColor = "red";
+                fenetre.document.body.style.color = "white";
+                fenetre.document.body.textContent = "Vous devez saisir un nombre";
+            }
+        }
+
+        input1.addEventListener("blur", verifier);
+        input2.addEventListener("blur", verifier);
+
+        document.querySelector("#button").addEventListener("click", () => {
+            let resultat;
+            switch (operateur.value) {
+                case "+":
+                    resultat = "Le résultat de l'addition est " + (Number(input1.value) + Number(input2.value));
+                    break;
+                case "-":
+                    resultat = "Le résultat de la soustraction est " + (Number(input1.value) - Number(input2.value));
+                    break;
+                case "*":
+                    resultat = "Le résultat de la multiplication est " + (Number(input1.value) * Number(input2.value));
+                    break;
+                case "/":
+                    resultat = "Le résultat de la division est " + (Number(input1.value) / Number(input2.value));
+                    break;
+            }
+            document.querySelector("#result").textContent = resultat;
+        });
+    </script>
+</body>
+
+</html>

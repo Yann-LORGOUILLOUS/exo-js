@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP08 - FORMULAIRE</title>
+</head>
+
+<body>
+    <form>
+        <label for="name">Votre nom</label>
+        <input id="name">
+        <br>
+        <label for="firstName">Votre prénom</label>
+        <input id="firstName">
+        <br>
+        <label for="dateOfBirth">Votre date de naissance</label>
+        <input id="dateOfBirth" type="date">
+        <br>
+        <button id="button" type="button">Soumettre le formulaire</button>
+    </form>
+
+    <script>
+        const button = document.getElementById("button");
+
+        function verifier(event) {
+            const name = document.getElementById("name").value;
+            const firstName = document.getElementById("firstName").value;
+            const dateOfBirth = document.getElementById("dateOfBirth").value;
+
+           if (name === "" || firstName === "" || dateOfBirth === "") {
+                let fenetre = window.open("", "erreur", "width=300,height=150");
+                fenetre.document.body.style.backgroundColor = "red";
+                fenetre.document.body.style.color = "white";
+                fenetre.document.body.textContent = "Vous devez saisir tous les champs";
+            } else {
+                let fenetre = window.open("", "confirmation", "width=300,height=150");
+                fenetre.document.body.style.backgroundColor = "green";
+                fenetre.document.body.style.color = "white";
+                fenetre.document.body.textContent = "Bien joué !";
+            }
+        }
+
+        button.addEventListener("click", verifier);
+        
+    </script>
+</body>
+
+</html>
