@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+
+    <script src="tp10_formulaire.js"></script>
+
+	<title>FORMULAIRE</title>
+</head>
+<body onload="chargerUtilisateurs()">
+
+    <h1>Gestion des utilisateurs</h1>
+    <button type="button" onclick="ajouterUtilisateur()">AJOUTER </button>
+    <br><br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Identifiant</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Genre</th>
+                <th>Date de naissance</th>
+                <th>Lieu de naissance</th>
+                <th>Département de naissance</th>
+                <th>Adresse</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="corps">
+
+        </tbody>
+    </table>
+
+    <form style="display:none" id="formulaire">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" required><br>
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" required><br>
+        <label>Genre:</label>
+        <input type="radio" id="homme" name="genre" value="H" required>
+        <label for="homme">Homme</label>
+        <input type="radio" id="femme" name="genre" value="F" required>
+        <label for="femme">Femme</label>
+        <input type="radio" id="autre" name="genre" value="A" required>
+        <label for="autre">Autre</label><br>
+        <label for="dateNaissance">Date de naissance:</label>
+        <input type="date" id="dateNaissance" name="dateNaissance"  required><br>
+        <label for="lieuNaissance">Lieu de naissance:</label>
+        <input type="text" id="lieuNaissance" name="lieuNaissance" required><br>
+        <label for="departementNaissance">Département de naissance:</label>
+        <input type="text" id="departementNaissance" name="departementNaissance" required><br>
+        <label for="numeroRue">Numéro de rue:</label>
+        <input type="text" id="numeroRue" name="numeroRue" required><br>
+        <label for="libelleRue">Nom de rue:</label>
+        <input type="text" id="libelleRue" name="libelleRue" required><br>
+        <label for="codePostal">Code postal:</label>
+        <input type="text" id="codePostal" name="codePostal" required><br>
+        <label for="ville">Ville:</label>
+        <input type="text" id="ville" name="ville" required><br>
+        <button type="button" onclick="creerUtilisateur()">VALIDER</button>
+    </form>
+
+    <dialog id="modaleSuppression">
+        <p>Voulez-vous vraiment supprimer cet utilisateur ?</p>
+        <button type="button" onclick="confirmerSuppression()">Confirmer</button>
+        <button type="button" onclick="document.querySelector('#modaleSuppression').close()">Annuler</button>
+    </dialog>
+
+</body>
+</html>

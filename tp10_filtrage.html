@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtrage polluants</title>
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th,td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .drapeau {
+            text-align: center;
+        }
+    </style>
+
+    <script src="tp10_filtrage.js"></script>
+</head>
+
+<body onload="initialiserDonnees()">
+    <h1 id="titre"></h1>
+    <h2 id="annee"></h2>
+
+    <label for="minimum">Minimum :</label>
+    <input type="number" id="minimum" name="min" value="0" onchange="filtrer()">
+    <label for="maximum">Maximum :</label>
+    <input type="number" id="maximum" name="max" value="Number.MAX_VALUE" onchange="filtrer()">
+    <button type="button" onclick="valider()" value="Valider">Valider</button><br><br>
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Nom</th>
+                <th>Valeur</th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody id="corps">
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>
