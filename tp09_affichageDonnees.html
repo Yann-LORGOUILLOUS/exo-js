@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Affichage des données</title>
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th,td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+
+    <script src="tp09_affichageDonnees.js"></script>
+</head>
+
+<body onload="initialiserDonnees()">
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Nom du pays <i id="iconeTri" class="fa-solid fa-sort" onclick="trierParNom()"></i></th>
+                <th>Capitale</th>
+            </tr>
+        </thead>
+        <tbody id="corps">
+
+        </tbody>
+    </table>
+</body>
+
+</html>
